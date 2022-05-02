@@ -27,11 +27,9 @@ public class SByChoice {
     }
 
     private static int getIndexOfSmallestAuditionCount(ArrayList<MusicBand> inputList) {
-        MusicBand smallestBandByAudition = inputList.get(0);
         int smallestIndex = 0;
         for (int i = 1; i < inputList.size(); i++) {
             if (inputList.get(i).getAuditionCount() < inputList.get(smallestIndex).getAuditionCount()) {
-                smallestBandByAudition = inputList.get(i);
                 smallestIndex = i;
             }
         }
