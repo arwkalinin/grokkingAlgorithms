@@ -1,4 +1,4 @@
-package SortingByChoice;
+package sortingByChoice;
 
 public class MusicBand {
     static int totalBands;

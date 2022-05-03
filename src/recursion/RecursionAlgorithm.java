@@ -1,4 +1,4 @@
-package Recursion;
+package recursion;
 
 public class RecursionAlgorithm {
     public static void main(String[] args) {
