@@ -1,6 +1,5 @@
 package quicksort;
 
-import java.sql.Array;
 import java.util.ArrayList;
 
 public class QSortProgram {
@@ -12,7 +11,7 @@ public class QSortProgram {
         arrList.add(12);
         arrList.add(3);
         arrList.add(-2);
-        arrList.add(15);
+        arrList.add(5);
         arrList.add(10);
         System.out.println("ArrayList before quicksort: " + arrList);
         System.out.println("ArrayList after quicksort: " + getQuickSorted(arrList));
@@ -24,26 +23,22 @@ public class QSortProgram {
         if (arrList.size() < 2) return arrList;
         else {
             int pivot = arrList.get(0);
-
             ArrayList<Integer> less = new ArrayList<>();
             ArrayList<Integer> greater = new ArrayList<>();
+            ArrayList<Integer> middle = new ArrayList<>();
 
-            for (int i = 1; i < arrList.size(); i++) {
-                if (arrList.get(i) < pivot) {
-                    less.add(arrList.get(i));
-                }
-                else if (arrList.get(i) > pivot) {
-                    greater.add(arrList.get(i));
-                }
+            for (int i:arrList) {
+                if (i < pivot) less.add(i);
+                else if (i > pivot) greater.add(i);
+                else middle.add(i);
             }
 
             newArrList.addAll(getQuickSorted(less));
-            newArrList.add(pivot);
+            newArrList.addAll(middle);
             newArrList.addAll(getQuickSorted(greater));
 
             return newArrList;
         }
-
-
     }
+
 }
