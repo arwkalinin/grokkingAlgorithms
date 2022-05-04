@@ -1,5 +1,6 @@
 package quicksort;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class QSortProgram {
@@ -32,11 +33,10 @@ public class QSortProgram {
                 else if (i > pivot) greater.add(i);
                 else middle.add(i);
             }
-
+            
             newArrList.addAll(getQuickSorted(less));
             newArrList.addAll(middle);
             newArrList.addAll(getQuickSorted(greater));
-
             return newArrList;
         }
     }
