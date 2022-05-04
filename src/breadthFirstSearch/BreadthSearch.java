@@ -1,10 +1,7 @@
 package breadthFirstSearch;
 
 import java.sql.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BreadthSearch {
     public static void main(String[] args) {
@@ -20,6 +17,12 @@ public class BreadthSearch {
         Person p10 = new Person("Bob", "thirdLevel", 38, "Soldier", "third city");
         Person p11 = new Person("Mike", "thirdLevel", 21, "Another job", "third city");
         Person p12 = new Person("Stan", "thirdLevel", 12, "Another job", "third city");
+
+        List<Person> myFriends = new ArrayList<>();
+        myFriends.add(p1);
+        myFriends.add(p2);
+        myFriends.add(p3);
+        System.out.println("MY FRIENDS: " + myFriends);
 
         List<Person> p1Friends = new ArrayList<>();
         p1Friends.add(p4);
@@ -52,5 +55,40 @@ public class BreadthSearch {
         friendConnections.put(p3, p3Friends);
         friendConnections.put(p5, p5Friends);
         friendConnections.put(p6, p6Friends);
+
+        // THEY DON'T HAVE FRIENDS ;(. Is needed to findWorker() work correctly.
+        friendConnections.put(p4, new ArrayList<>());
+        friendConnections.put(p7, new ArrayList<>());
+        friendConnections.put(p10, new ArrayList<>());
+        friendConnections.put(p11, new ArrayList<>());
+        friendConnections.put(p12, new ArrayList<>());
+
+        System.out.println();
+
+        // WORKER TO FIND
+        System.out.println("WORKER FOUND: " + findWorker("Soldier", myFriends, friendConnections));
+        // ===============================
+    }
+
+    private static Person findWorker(String jobToFind, List<Person> myFriends, Map<Person, List<Person>> friendConnections) {
+        Queue<Person> checkQueue = new LinkedList<>(myFriends);
+        Person nullWorker = new Person();
+        int counter = 0;
+
+        while (!checkQueue.isEmpty()) {
+            if (checkQueue.peek().getJob().equals(jobToFind)) {
+                System.out.println("STEPS TO FIND = " + counter);
+                return checkQueue.peek();
+            }
+            else {
+                for (Person p:friendConnections.get(checkQueue.peek())) {
+                    checkQueue.offer(p);
+                }
+                checkQueue.poll();
+            }
+            counter++;
+        }
+        System.out.println("STEPS TO FIND = " + counter);
+        return nullWorker;
     }
 }

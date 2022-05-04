@@ -64,11 +64,11 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "_name='" + _name + '\'' +
-                ", _surname='" + _surname + '\'' +
-                ", _job='" + _job + '\'' +
-                ", _age=" + _age +
-                ", _cityOfResidence='" + _cityOfResidence + '\'' +
+                "name='" + _name + '\'' +
+                ", surname='" + _surname + '\'' +
+                ", job='" + _job + '\'' +
+                ", age=" + _age +
+                ", cityOfResidence='" + _cityOfResidence + '\'' +
                 '}';
     }
     // ===========
