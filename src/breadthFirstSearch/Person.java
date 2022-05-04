@@ -37,12 +37,12 @@ public class Person {
     public int getAge() {
         return _age;
     }
-    // ===========
-
-    // setters --->
     public String getCityOfResidence() {
         return _cityOfResidence;
     }
+    // ===========
+
+    // setters --->
     public void setName(String _name) {
         this._name = _name;
     }
@@ -57,6 +57,19 @@ public class Person {
     }
     public void setCityOfResidence(String _cityOfResidence) {
         this._cityOfResidence = _cityOfResidence;
+    }
+    // ===========
+
+    // overrides --->
+    @Override
+    public String toString() {
+        return "Person{" +
+                "_name='" + _name + '\'' +
+                ", _surname='" + _surname + '\'' +
+                ", _job='" + _job + '\'' +
+                ", _age=" + _age +
+                ", _cityOfResidence='" + _cityOfResidence + '\'' +
+                '}';
     }
     // ===========
 }
