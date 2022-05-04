@@ -1,7 +1,9 @@
 package breadthFirstSearch;
 
-import java.sql.Array;
 import java.util.*;
+
+import static breadthFirstSearch.Person.findWorker;
+import static breadthFirstSearch.Person.friendConnections;
 
 public class BreadthSearch {
     public static void main(String[] args) {
@@ -49,46 +51,19 @@ public class BreadthSearch {
         p6Friends.add(p12);
         System.out.println("P6 FRIENDS: " + p3Friends);
 
-        Map<Person, List<Person>> friendConnections = new HashMap<>();
+        //Map<Person, List<Person>> friendConnections = new HashMap<>();
         friendConnections.put(p1, p1Friends);
         friendConnections.put(p2, p2Friends);
         friendConnections.put(p3, p3Friends);
         friendConnections.put(p5, p5Friends);
         friendConnections.put(p6, p6Friends);
 
-        // THEY DON'T HAVE FRIENDS ;(. Is needed to findWorker() work correctly.
-        friendConnections.put(p4, new ArrayList<>());
-        friendConnections.put(p7, new ArrayList<>());
-        friendConnections.put(p10, new ArrayList<>());
-        friendConnections.put(p11, new ArrayList<>());
-        friendConnections.put(p12, new ArrayList<>());
-
         System.out.println();
 
         // WORKER TO FIND
-        System.out.println("WORKER FOUND: " + findWorker("Soldier", myFriends, friendConnections));
+        System.out.println("WORKER FOUND: " + Person.findWorker("Soldier", myFriends, friendConnections));
         // ===============================
     }
 
-    private static Person findWorker(String jobToFind, List<Person> myFriends, Map<Person, List<Person>> friendConnections) {
-        Queue<Person> checkQueue = new LinkedList<>(myFriends);
-        Person nullWorker = new Person();
-        int counter = 0;
 
-        while (!checkQueue.isEmpty()) {
-            if (checkQueue.peek().getJob().equals(jobToFind)) {
-                System.out.println("STEPS TO FIND = " + counter);
-                return checkQueue.peek();
-            }
-            else {
-                for (Person p:friendConnections.get(checkQueue.peek())) {
-                    checkQueue.offer(p);
-                }
-                checkQueue.poll();
-            }
-            counter++;
-        }
-        System.out.println("STEPS TO FIND = " + counter);
-        return nullWorker;
-    }
 }

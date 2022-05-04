@@ -1,6 +1,9 @@
 package breadthFirstSearch;
 
+import java.util.*;
+
 public class Person {
+    public static Map<Person, List<Person>> friendConnections = new HashMap<>();
     private String _name;
     private String _surname;
     private String _job;
@@ -14,6 +17,7 @@ public class Person {
         this._age = 0;
         this._job = "unemployed";
         this._cityOfResidence = "Milky Way";
+        friendConnections.put(this, new ArrayList<>());
     }
     Person(String _name, String _surname, int _age, String _job, String _cityOfResidence) {
         this._name = _name;
@@ -21,6 +25,15 @@ public class Person {
         this._age = _age;
         this._job = _job;
         this._cityOfResidence = _cityOfResidence;
+        friendConnections.put(this, new ArrayList<>());
+    }
+    Person(String _name, String _surname, int _age, String _job, String _cityOfResidence, ArrayList<Person> friends) {
+        this._name = _name;
+        this._surname = _surname;
+        this._age = _age;
+        this._job = _job;
+        this._cityOfResidence = _cityOfResidence;
+        friendConnections.put(this, friends);
     }
     // ===========
 
@@ -72,4 +85,26 @@ public class Person {
                 '}';
     }
     // ===========
+
+    public static Person findWorker(String jobToFind, List<Person> myFriends, Map<Person, List<Person>> friendConnections) {
+        Queue<Person> checkQueue = new LinkedList<>(myFriends);
+        Person nullWorker = new Person();
+        int counter = 0;
+
+        while (!checkQueue.isEmpty()) {
+            if (checkQueue.peek().getJob().equals(jobToFind)) {
+                System.out.println("STEPS TO FIND = " + counter);
+                return checkQueue.peek();
+            }
+            else {
+                for (Person p:friendConnections.get(checkQueue.peek())) {
+                    checkQueue.offer(p);
+                }
+                checkQueue.poll();
+            }
+            counter++;
+        }
+        System.out.println("STEPS TO FIND = " + counter);
+        return nullWorker;
+    }
 }
