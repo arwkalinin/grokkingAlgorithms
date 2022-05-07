@@ -6,7 +6,7 @@ import static breadthFirstSearch.Person.findWorker;
 import static breadthFirstSearch.Person.friendConnections;
 
 public class BreadthSearch {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Person p1 = new Person("Mihail", "firstLevel", 25, "Miner", "first city");
         Person p2 = new Person("Nikita", "firstLevel", 19, "Engineer", "first city");
         Person p3 = new Person("Dmitry", "firstLevel", 21, "Cooker", "first city");
@@ -59,7 +59,6 @@ public class BreadthSearch {
         friendConnections.put(p6, p6Friends);
 
         System.out.println();
-
         // WORKER TO FIND
         System.out.println("WORKER FOUND: " + Person.findWorker("Soldier", myFriends, friendConnections));
         // ===============================
