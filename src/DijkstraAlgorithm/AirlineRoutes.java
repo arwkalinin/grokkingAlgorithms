@@ -17,13 +17,18 @@ public class AirlineRoutes {
     }
 
     public void showRoutes() {
-        System.out.println("Moscow -> " + DEPARTURES.get("Moscow")[0] + ", " + DEPARTURES.get("Moscow")[1]);
+        System.out.println("Moscow -> " + DEPARTURES.get("Moscow")[0] + "(" + getFlyTimeInMinutes("Moscow", DEPARTURES.get("Moscow")[0]) + "), "
+                            + DEPARTURES.get("Moscow")[1] + '(' + getFlyTimeInMinutes("Moscow", DEPARTURES.get("Moscow")[1]) + ')');
 
-        System.out.println("London -> " + DEPARTURES.get("London")[0] + ", " + DEPARTURES.get("London")[1]);
-        System.out.println("Paris -> " + DEPARTURES.get("Paris")[0] + ", " + DEPARTURES.get("Paris")[1]);
+        System.out.println("London -> " + DEPARTURES.get("London")[0] + "(" + getFlyTimeInMinutes("London", DEPARTURES.get("London")[0]) + "), "
+                            + DEPARTURES.get("London")[1] + '(' + getFlyTimeInMinutes("London", DEPARTURES.get("London")[1]) + ')');
+        System.out.println("Paris -> " + DEPARTURES.get("Paris")[0] + "(" + getFlyTimeInMinutes("Paris", DEPARTURES.get("Paris")[0]) + "), "
+                            + DEPARTURES.get("Paris")[1] + '(' + getFlyTimeInMinutes("Paris", DEPARTURES.get("Paris")[1]) + ')');
 
-        System.out.println("Madrid -> " + DEPARTURES.get("Madrid")[0] + ", " + DEPARTURES.get("Madrid")[1]);
-        System.out.println("Rome -> " + DEPARTURES.get("Rome")[0] + ", " + DEPARTURES.get("Rome")[1]);
+        System.out.println("Madrid -> " + DEPARTURES.get("Madrid")[0] + "(" + getFlyTimeInMinutes("Madrid", DEPARTURES.get("Madrid")[0]) + "), "
+                            + DEPARTURES.get("Madrid")[1] + '(' + getFlyTimeInMinutes("Madrid", DEPARTURES.get("Madrid")[1]) + ')');
+        System.out.println("Rome -> " + DEPARTURES.get("Rome")[0] + "(" + getFlyTimeInMinutes("Rome", DEPARTURES.get("Rome")[0]) + "), "
+                            + DEPARTURES.get("Rome")[1] + '(' + getFlyTimeInMinutes("Rome", DEPARTURES.get("Rome")[1]) + ')');
     }
 
     public int getFlyTimeInMinutes(String departCity, String arriveCity) {
@@ -52,4 +57,6 @@ public class AirlineRoutes {
         // default case:
         return 0;
     }
+
+
 }
