@@ -7,5 +7,6 @@ public class RouteFinder {
 
         int temp = routes.getFlyTimeInMinutes("Rome", "Lisbon");
         System.out.println(temp);
+        routes.showShortestWayToLisbon();
     }
 }

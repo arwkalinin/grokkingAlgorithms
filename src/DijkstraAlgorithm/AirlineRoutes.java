@@ -1,6 +1,8 @@
 package DijkstraAlgorithm;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class AirlineRoutes {
@@ -56,6 +58,10 @@ public class AirlineRoutes {
         }
         // default case:
         return 0;
+    }
+
+    public void showShortestWayToLisbon() {
+        Map<String,Integer> citiesPriceInMinutes = new HashMap<>();
     }
 
 
