@@ -1,4 +1,4 @@
-package cont.minValueSearch;
+package alghs.minValueSearch;
 
 public class Runner {
 

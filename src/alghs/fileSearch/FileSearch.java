@@ -1,4 +1,4 @@
-package cont.fileSearch;
+package alghs.fileSearch;
 
 import java.io.File;
 import java.util.ArrayList;
