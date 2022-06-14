@@ -1,11 +1,14 @@
 package sortingByChoice;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public class SByChoice {
     public static void main(String[] args) {
 
-        ArrayList<MusicBand> bandsList = new ArrayList<>();
+        List<MusicBand> bandsList = new ArrayList<>();
         bandsList.add(new MusicBand("RAMMSTEIN", 650));
         bandsList.add(new MusicBand("LINKIN PARK", 425));
         bandsList.add(new MusicBand("RADIOHEAD", 50));
@@ -22,7 +25,7 @@ public class SByChoice {
         System.out.println("SORTED LIST: " + bandsList);
     }
 
-    private static int getIndexOfSmallestAuditionCount(ArrayList<MusicBand> inputList) {
+    private static int getIndexOfSmallestAuditionCount(List<MusicBand> inputList) {
         int smallestIndex = 0;
         for (int i = 1; i < inputList.size(); i++) {
             if (inputList.get(i).getAuditionCount() < inputList.get(smallestIndex).getAuditionCount()) {
@@ -32,10 +35,11 @@ public class SByChoice {
         return smallestIndex;
     }
 
-    private static ArrayList<MusicBand> getSortedToHigherArrayList(ArrayList<MusicBand> inputList) {
+    private static ArrayList<MusicBand> getSortedToHigherArrayList(List<MusicBand> inputList) {
         ArrayList<MusicBand> inputListCopy = new ArrayList<>(inputList);
         ArrayList<MusicBand> newList = new ArrayList<>();
         int curSmallIndex;
+
         for (int i = 0; i < inputList.size(); i++) {
             curSmallIndex = getIndexOfSmallestAuditionCount(inputListCopy);
             newList.add(inputListCopy.get(curSmallIndex));

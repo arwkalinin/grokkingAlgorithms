@@ -1,24 +1,16 @@
 package quicksort;
 
-import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 public class QSortProgram {
     public static void main(String[] args) {
-        ArrayList<Integer> arrList = new ArrayList<>();
-        arrList.add(5);
-        arrList.add(1);
-        arrList.add(-7);
-        arrList.add(12);
-        arrList.add(3);
-        arrList.add(-2);
-        arrList.add(5);
-        arrList.add(10);
+        List<Integer> arrList = List.of(5, 1, -7, 12, 3, 2, 5);
         System.out.println("ArrayList before quicksort: " + arrList);
         System.out.println("ArrayList after quicksort: " + getQuickSorted(arrList));
     }
 
-    private static ArrayList<Integer> getQuickSorted(ArrayList<Integer> arrList) {
+    private static List<Integer> getQuickSorted(List<Integer> arrList) {
         ArrayList<Integer> newArrList = new ArrayList<>();
 
         if (arrList.size() < 2) return arrList;

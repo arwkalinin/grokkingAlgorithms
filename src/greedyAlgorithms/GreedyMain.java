@@ -21,7 +21,7 @@ public class GreedyMain {
 
         // result will be putting here.
         Set<String> selectedStations = new HashSet<>();
-        
+
 
     }
 }
